@@ -28,7 +28,7 @@ paths:
       operationId: "get_alive"
       x-swagger-router-controller: "server.controllers.api_controller"
 
-  /consultar:
+  /food:
     get:
       tags:
         - "Food List"
@@ -57,6 +57,25 @@ paths:
           schema:
             $ref: "#/definitions/ArrayOfFoodOutput"
       operationId: "send_to_food_list"
+      x-swagger-router-controller: "server.controllers.food_list_controller"
+  /food/{id}:
+    delete:
+      tags:
+        - "Food List"
+      summary: "Deletar um item a lista"
+      description: "Deletar um item a lista"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          description: "O registro sera inativado"
+          type: "integer"
+      responses:
+        200:
+          description: "Registro deletado com sucesso"
+        500:
+          description: "Erro no servidor"
+      operationId: "delete_item"
       x-swagger-router-controller: "server.controllers.food_list_controller"
 
 definitions:
