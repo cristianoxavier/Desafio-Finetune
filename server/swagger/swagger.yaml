@@ -1,0 +1,29 @@
+---
+swagger: "2.0"
+info:
+  description: "Food Count"
+  version: "1.0.0"
+  title: "Finetune Challenge - Food Count"
+  contact:
+    email: "cristianoxavier_@outlook.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "{{host_with_port}}"
+basePath: "/v1"
+schemes:
+  - "https"
+  - "http"
+paths:
+  #endpoints
+  /ping:
+    get:
+      tags:
+        - "keepalive"
+      summary: "Api keepalive"
+      description: "Apikeepalive"
+      responses:
+        200:
+          description: "pong response"
+      operationId: "get_alive"
+      x-swagger-router-controller: "server.controllers.api_controller"
