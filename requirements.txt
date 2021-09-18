@@ -1,8 +1,5 @@
 flask
 connexion
 flask_cors
-
-
-
-#CORS
 flask_cors
+psycopg2

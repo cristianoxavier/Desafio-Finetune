@@ -27,3 +27,68 @@ paths:
           description: "pong response"
       operationId: "get_alive"
       x-swagger-router-controller: "server.controllers.api_controller"
+
+  /consultar:
+    get:
+      tags:
+        - "Food List"
+      summary: "Consultar lista de comida"
+      description: "Consultar lista de comida"
+      responses:
+        200:
+          description: "Consultar lista de comida"
+      operationId: "get_list"
+      x-swagger-router-controller: "server.controllers.food_list_controller"
+
+    post:
+      tags:
+        - "Food List"
+      summary: "Adicionar item"
+      description: "Adicionar item"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/FoodInput"
+      responses:
+        200:
+          description: 200 operation
+          schema:
+            $ref: "#/definitions/ArrayOfFoodOutput"
+      operationId: "send_to_food_list"
+      x-swagger-router-controller: "server.controllers.food_list_controller"
+
+definitions:
+  FoodInput:
+    type: "object"
+    properties:
+      food_name:
+        type: string
+        example: bananas
+      food_type:
+        type: string
+        example: proteina
+      food_amount:
+        type: integer
+        example: 2
+  FoodOutput:
+    type: "object"
+    properties:
+      food_id:
+        type: integer
+        example: 10
+      food_name:
+        type: string
+        example: bananas
+      food_type:
+        type: string
+        example: proteina
+      food_amount:
+        type: integer
+        example: 2
+
+  ArrayOfFoodOutput:
+    type: "array"
+    items:
+      $ref: "#/definitions/FoodInput"
