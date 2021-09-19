@@ -1,6 +1,0 @@
-DBHOST=localhost
-DB_NAME=postgres
-DB_USER=postgres
-DB_PASS=123
-HOST=localhost
-PORT=8080
