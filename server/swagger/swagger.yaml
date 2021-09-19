@@ -19,7 +19,7 @@ paths:
   /ping:
     get:
       tags:
-        - "keepalive"
+        - "Keepalive"
       summary: "Api keepalive"
       description: "Apikeepalive"
       responses:
@@ -32,19 +32,19 @@ paths:
     get:
       tags:
         - "Food List"
-      summary: "Consultar lista de comida"
-      description: "Consultar lista de comida"
+      summary: "Retorna a  lista de alimentos cadastrados"
+      description: "Retorna a  lista de alimentos cadastrados"
       responses:
         200:
-          description: "Consultar lista de comida"
+          description: "Retorna a  lista de alimentos cadastrados"
       operationId: "get_list"
       x-swagger-router-controller: "server.controllers.food_list_controller"
 
     post:
       tags:
         - "Food List"
-      summary: "Adicionar item"
-      description: "Adicionar item"
+      summary: "Adicionar um item a lista"
+      description: "Adicionar um item a lista"
       parameters:
         - name: "body"
           in: "body"
@@ -62,8 +62,8 @@ paths:
     delete:
       tags:
         - "Food List"
-      summary: "Deletar um item a lista"
-      description: "Deletar um item a lista"
+      summary: "Inativa um item da lista"
+      description: "Inativa um item da lista"
       parameters:
         - name: "id"
           in: "path"
@@ -77,6 +77,41 @@ paths:
           description: "Erro no servidor"
       operationId: "delete_item"
       x-swagger-router-controller: "server.controllers.food_list_controller"
+
+  /food/{date}:
+    get:
+      tags:
+        - "Food List"
+      summary: "Retorna a  lista de alimentos filtrados pela data"
+      description: "Retorna a  lista de alimentos filtrados pela data"
+      parameters:
+        - name: "date"
+          in: "path"
+          required: true
+          description: "Retorna a  lista de alimentos filtrados pela data"
+          type: "string"
+      responses:
+        200:
+          description: "Registro deletado com sucesso"
+        500:
+          description: "Erro no servidor"
+      operationId: "get_list_by_date"
+      x-swagger-router-controller: "server.controllers.food_list_controller"
+
+
+
+  /food/graph:
+    get:
+      tags:
+        - "Graph"
+      summary: "Dados de alimentos mais consumidos"
+      description: "Dados de alimentos mais consumidos"
+      responses:
+        200:
+          description: "Retorna dados com os alimentos mais consumidos por tipo de  alimento"
+      operationId: "get_graph"
+      x-swagger-router-controller: "server.controllers.food_list_controller"
+
 
 definitions:
   FoodInput:

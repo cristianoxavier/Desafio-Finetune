@@ -3,3 +3,6 @@ connexion
 flask_cors
 flask_cors
 psycopg2
+connexion[swagger-ui]
+numpy
+matplotlib==3.1
